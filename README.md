@@ -1,23 +1,36 @@
-Build a Twitter NASA App 🚀
-=================
+BUILD A TWITTER NASA APP 🚀 🌎 ✨ 🌚
+====
 
 
-👋🏽 Hello! 
+Once a day, NASA release an image or video through thier public API. I put together this Daily NASA app that Tweets media released by NASA. 
 
-I'm Hamza, and I created a Twitter app that uses both the Twitter API and NASA API! There are so many fun *and cool* things you can do with the Twitter API, which we’ll go over below 👇🏽
+Our app will connect to the NASA API and temporarily store media provided, and post a Tweet with the title + image/video via the Twitter API.
 
-Once a day, NASA releases a daily image 📷 or video 📹 through a NASA API. Our app will connect to their API and temporarily store the media provided, and post a daily Tweet with the image or video using the Twitter API.
+In this tutorial, I'll show you how to also build this app using the Twitter and NASA API! To see the app in action, check out the Twitter page [@DailyNASA](https://twitter.com/dailynasa). 
 
-Having some knowledge of Twitter’s API is going to help, as well as Glitch, and Node JS. 
+By [Hamza](https://twitter.com/oihamza) 👨🏽‍🚀
 
-Our app is going to be hosted (living) on Glitch. Glitch is a simple and powerful free tool to create, share, and use apps. Once we've configured our app, we'll set up a cron-job (daily call) using a callback URL to the endpoint which will wake up our app and make it post a Tweet at a specified time of day.
+
+
+What will we be doing today?
+------------
+
+Our app is going to be hosted (living) here on Glitch. Glitch is a simple and powerful free tool to create, share, and use apps. 
+Once we've configured our app, we'll set up a cron-job (daily call) using a callback URL to the endpoint which will wake up our app and make it post a Tweet at a specified time of day.
 
 An endpoint is a URL (like twitter.com), and whenever we submit a GET request we're asking the internet to go *get* this website for us. Once we've got the website, the app will wake up and do its job.
 
-So how does it work?
+
+
+
+
+How does the app work exactly?
 ------------
 
-At a very high level overview, our app will connect to the NASA API → <br>
+Our app will 
+On a very high level:
+
+our app will connect to the NASA API → <br>
 The app will check if the media provided by the NASA API is a video URL or image URL → <br>
 → If it's a video, the app will save the video URL + title and Tweet this via the Twitter [statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update) API <br>
 → If it's an image, the app will save the image to a temporary directory and Tweet this via the Twitter [statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update) API. Because it's a temporary directory, we don't have to worry about filling up space (pun intended).
@@ -41,13 +54,20 @@ Recipe
 
 Step 1 - 💿
 
-a) Remix this app! *GIF of how to do that of mouse clicking the remix button*
+a) Remix this app! 
+
+![Remix](https://cdn.glitch.com/40a2e399-2bcb-4c11-b356-fdb1d9baa5e9%2FScreen%20Shot%202019-08-08%20at%203.54.26%20PM.png?v=1565294080315)
+
 
 b) Name your app! 
 
-image of how to do that - example screenshot: my-twitter-nasa
+I called mine  `daily-nasa`
 
-Step 2 - :key emoji:
+![Name](https://cdn.glitch.com/40a2e399-2bcb-4c11-b356-fdb1d9baa5e9%2FScreen%20Shot%202019-08-08%20at%203.57.37%20PM.png?v=1565294269445)
+
+
+Step 2 - 🔑
+
 A) Using your Twitter keys and tokens, enter them into the .env file 
 
 Image of DTC Apps page
@@ -99,3 +119,4 @@ Congratulations!
 -------------------
 
 You did it! 😎 Tweet me your Twitter app at [@oiHamza](https://twitter.com/oihamza), and let me know what other Twitter app tutorials you'd like to see.
+
