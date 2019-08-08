@@ -1,50 +1,49 @@
 BUILD A TWITTER NASA APP 🚀 🌎 ✨ 🌚
 ====
 
-
-Once a day, NASA release an image or video through thier public API. I put together this Daily NASA app that Tweets media released by NASA. 
-
-Our app will connect to the NASA API and temporarily store media provided, and post a Tweet with the title + image/video via the Twitter API.
-
-In this tutorial, I'll show you how to also build this app using the Twitter and NASA API! To see the app in action, check out the Twitter page [@DailyNASA](https://twitter.com/dailynasa). 
-
 By [Hamza](https://twitter.com/oihamza) 👨🏽‍🚀
 
+
+Once a day, NASA release an image or video through thier public API. I put together this automated Daily NASA app that Tweets media released by NASA. 
+
+Our app will connect to the NASA API and temporarily store media provided, and post a Tweet with the title + image/video via the Twitter API. Pretty simple!
+
+In this tutorial, I'll show you how to also build this app using the Twitter and NASA API. To see the app in action, check out the Twitter page [@DailyNASA](https://twitter.com/dailynasa). 
 
 
 What will we be doing today?
 ------------
 
-Our app is going to be hosted (living) here on Glitch. Glitch is a simple and powerful free tool to create, share, and use apps. 
-Once we've configured our app, we'll set up a cron-job (daily call) using a callback URL to the endpoint which will wake up our app and make it post a Tweet at a specified time of day.
+Our app is going to be hosted here on Glitch, so we won't be doing much except making sure our app is properly configured.
 
-An endpoint is a URL (like twitter.com), and whenever we submit a GET request we're asking the internet to go *get* this website for us. Once we've got the website, the app will wake up and do its job.
-
+Once this project has been remixed and the `.env` file's keys and tokens properly configured, we'll schedule a cron-job to make our app Tweet. A cron-job is essentially an automated wake-up call.
 
 
-
-
-How does the app work exactly?
+How does the code work exactly?
 ------------
 
-Our app will 
-On a very high level:
-
-our app will connect to the NASA API → <br>
-The app will check if the media provided by the NASA API is a video URL or image URL → <br>
-→ If it's a video, the app will save the video URL + title and Tweet this via the Twitter [statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update) API <br>
-→ If it's an image, the app will save the image to a temporary directory and Tweet this via the Twitter [statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update) API. Because it's a temporary directory, we don't have to worry about filling up space (pun intended).
-→ Our app will be activated (woken up) by a webhook, and only Tweet when that webhook is pinged. This lets you Tweet at specific times of day. We'll use cron-job.org to set up a cron job that basically pings the URL at specific times that we specify
-→ To wake Bert up and let him know it's time to get to work, we'll use an endpoint and a cron-job service to set an alarm for him to get up and start working. 
+1. The app will be activated ~~woken up~~ via a webhook. The webhook will be pinged by our cron-job at a specified time of day ⏰
+2. Our app will connect to the NASA API 🚀
+3. The app will check if the media provided by the NASA API is a video URL or image URL:
+  * If it's a **video** 📹, the app will save the video URL + title and Tweet this via the Twitter [statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update) endpoint
+  * If it's an **image** 📷, the app will save the image to a temporary directory and Tweet this via the Twitter [statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update) API. Because it's a temporary directory, we don't have to worry about filling up space (pun intended) 🥁
 
 
-Prerequisites:
+Prerequisites
 ------------
 
-A Twitter developer account - link to DTC developer application page
-A registered app - link to DTC apps page 
-Collect your keys and tokens from your registered app - link to docs that shows how to get keys and tokens 
-A NASA API key 🔑 - link
+Before we get started, you'll need the following:
+
+  * A Twitter developer account - [click here](https://t.co/developeraccount) to apply
+  
+  * A registered [Twitter app](https://developer.twitter.com/en/apps) - [click here](https://cdn.glitch.com/40a2e399-2bcb-4c11-b356-fdb1d9baa5e9%2FScreen%20Shot%202019-08-08%20at%205.20.15%20PM%20copy.png?v=1565299668056) to see how
+
+  * A copy of your [Twitter API](https://developer.twitter.com/en/apps) keys and tokens - [click here](https://cdn.glitch.com/40a2e399-2bcb-4c11-b356-fdb1d9baa5e9%2FScreen%20Shot%202019-08-08%20at%205.20.35%20PM%20copy.png?v=1565300041251) to see how
+  
+  * A NASA API key 🔑 - [click here](https://api.nasa.gov/#apply-for-an-api-key) to get one
+  
+  * A cron-job account - [click here](https://cron-job.org/en/signup/) to register
+
 
 Once you have all of these, you're ready to launch 🚀!
 
@@ -68,50 +67,42 @@ I called mine  `daily-nasa`
 
 Step 2 - 🔑
 
-A) Using your Twitter keys and tokens, enter them into the .env file 
+A) Enter your Twitter apps keys and tokens in the projects `.env` file
 
-Image of DTC Apps page
-Image of .ENV page with keys and tokens
+![Keys](https://cdn.glitch.com/40a2e399-2bcb-4c11-b356-fdb1d9baa5e9%2FScreen1%20Shot%202019-08-08%20at%205.20.35%20PM%20copy.png?v=1565300721909)
 
-B) Enter your NASA API Key
+B) Enter your NASA API Key on the projects `.env` file
 
-Image of NASA API page 
-Image of .ENV page with API key
+C) Give your app endpoint a name 
 
-C) Choose your app endpoint name 
+For example, if I label mine `awaken`, my final endpoint will look like this: `https://daily-nasa.glitch.me/awaken`
 
-For example, if I call mine wakeupapp, my final endpoint will look like this:
-
-https://my-twitter-nasa.glitch.me/wakeupapp
-
-IMPORTANT :alert: - keep your webhook information private. If your webhook information is public, people who ping it will wake your app (and get it to tweet without your knowledge)
+🚨 IMPORTANT - keep all access keys, tokens, and endpoint names private 🚨
 
 Step 3 - TESTING TESTING !!
 
-Now you've configured your app, let's test it out. You can use either of the following ways to check if the endpoint works properly:
+Now you've configured our app, let's test it out.
 
-option 1 - in a new browser window, enter your URL and hit return/enter. Give it a second.
+I usually reccomend viewing the logs in Tools → Logs to verify our app runs when we wake it up. 
 
-or 
+In a new browser window, enter your unique endpoint URL and hit enter. (You can also test the URL via your command line using the following command: `curl https://daily-nasa.glitch.me/awaken`
 
-option 2 - on your command line, enter the following command: `curl {example-url}`
-
-Check your Twitter account to see that the Tweet posted! Try not to keep hitting the URL and posting the same image/title too frequently as it can lead to rate limiting from the API and might be detected as spam by Twitter. 
+Give it a second, and on your Twitter account you should see the daily NASA Tweet posted!
 
 Now you've verified that it works, let's make sure that it's automated so you don't have to keep doing this every single day.
 
-Step 4 - Wake me up, before I go Go! 
+Step 4 - ⏰ 
 
-In this example, we'll be using cron-job.org to ping our endpoint and make our app post a daily Tweet. 
+We'll be using [cron-job.org](https://cron-job.org/en/) to ping our endpoint and make our app post a daily Tweet.
 
-a - go onto crong-job (url) and create a free account. Select create cronjobs on this page. 
+Create a [new cron-job](https://cron-job.org/en/members/jobs/add/) and fill out the page to this effect:
 
-Fill out the page to this effect:
+![cron-job](https://cdn.glitch.com/40a2e399-2bcb-4c11-b356-fdb1d9baa5e9%2FScreen%20Shot%202019-08-08%20at%206.13.22%20PM.png?v=1565302473410)
 
-IMAGE 
+🚨 IMPORTANT - Scheduling your app to run too frequently can seem spammy and lead to violation of Twitters [automation policy](https://help.twitter.com/en/rules-and-policies/twitter-automation). 🚨
 
-I like to save the responses of the cronjob to make sure that I can see what happens.
- 
+Once a job has run, you can view the response on [this page](https://cron-job.org/en/members/jobs/). 
+
 And just like that, we're done!!!
 
 
