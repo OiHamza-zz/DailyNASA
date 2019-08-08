@@ -1,7 +1,10 @@
 BUILD A TWITTER NASA APP 🚀 🌎 ✨ 🌚
 ====
+A Twitter bot that Tweets Daily Images provided by NASA's API
 
 By [Hamza](https://twitter.com/oihamza) 👨🏽‍🚀
+
+###### This project is hosted on Glitch: https://glitch.com/~daily-nasa
 
 
 Once a day, NASA release an image or video through thier public API. I put together this automated Daily NASA app that Tweets media released by NASA. 
