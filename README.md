@@ -22,7 +22,7 @@ Once this project has been remixed and the `.env` file's keys and tokens properl
 How does the code work exactly?
 ------------
 
-1. The app will be activated ~~woken up~~ via a webhook. The webhook will be pinged by our cron-job at a specified time of day ⏰
+1. The app will be activated via a webhook. The webhook will be pinged by our cron-job at a specified time of day ⏰
 2. Our app will connect to the NASA API 🚀
 3. The app will check if the media provided by the NASA API is a video URL or image URL:
   * If it's a **video** 📹, the app will save the video URL + title and Tweet this via the Twitter [statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update) endpoint
@@ -53,7 +53,7 @@ Recipe
 
 Step 1 - 💿
 
-a) Remix this app! 
+a) Remix this project! 
 
 ![Remix](https://cdn.glitch.com/40a2e399-2bcb-4c11-b356-fdb1d9baa5e9%2FScreen%20Shot%202019-08-08%20at%203.54.26%20PM.png?v=1565294080315)
 
@@ -75,7 +75,7 @@ B) Enter your NASA API Key on the projects `.env` file
 
 C) Give your app endpoint a name 
 
-For example, if I label mine `awaken`, my final endpoint will look like this: `https://daily-nasa.glitch.me/awaken`
+For example, if I label mine `awaken`, your `.env` file should look like this: `BOT_ENDPOINT='awaken'`. My final endpoint will look like this: `https://daily-nasa.glitch.me/awaken`
 
 🚨 IMPORTANT - keep all access keys, tokens, and endpoint names private 🚨
 
@@ -99,7 +99,7 @@ Create a [new cron-job](https://cron-job.org/en/members/jobs/add/) and fill out 
 
 ![cron-job](https://cdn.glitch.com/40a2e399-2bcb-4c11-b356-fdb1d9baa5e9%2FScreen%20Shot%202019-08-08%20at%206.13.22%20PM.png?v=1565302473410)
 
-🚨 IMPORTANT - Scheduling your app to run too frequently can seem spammy and lead to violation of Twitters [automation policy](https://help.twitter.com/en/rules-and-policies/twitter-automation). 🚨
+🚨 IMPORTANT - scheduling your app to run too frequently can seem spammy and lead to violation of Twitters [automation policy](https://help.twitter.com/en/rules-and-policies/twitter-automation). 🚨
 
 Once a job has run, you can view the response on [this page](https://cron-job.org/en/members/jobs/). 
 
@@ -109,5 +109,6 @@ And just like that, we're done!!!
 Congratulations!
 -------------------
 
-You did it! 😎 Tweet me your Twitter app at [@oiHamza](https://twitter.com/oihamza), and let me know what other Twitter app tutorials you'd like to see.
+You did it! 😎 
 
+Tweet me your Twitter app at [@oiHamza](https://twitter.com/oihamza), and let me know what other Twitter app tutorials you'd like to see.
