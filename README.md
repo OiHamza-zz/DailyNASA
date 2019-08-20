@@ -4,7 +4,7 @@ A Twitter bot that Tweets Daily Images provided by NASA's API
 
 By [Hamza](https://twitter.com/oihamza) 👨🏽‍🚀
 
-###### This project is hosted on Glitch: https://glitch.com/~daily-nasa
+###### This project is hosted on Glitch: https://glitch.com/~dailynasa
 
 Once a day, NASA features an astronomy or space science related image through their public API. The images are pretty cool and teach you about the incredible solar system we live in!  
 
@@ -58,7 +58,7 @@ Recipe
 
 Step 1 - 💿
 
-a) On our [Glitch project page](https://glitch.com/~daily-nasa), remix this project! Click on the "Remix Project" button on the top left of this page.
+a) On our [Glitch project page](https://glitch.com/~dailynasa), remix this project! Click on the "Remix Project" button on the top left of this page.
 
 ![Remix](https://cdn.glitch.com/40a2e399-2bcb-4c11-b356-fdb1d9baa5e9%2FScreen%20Shot%202019-08-08%20at%203.54.26%20PM.png?v=1565294080315)
 
