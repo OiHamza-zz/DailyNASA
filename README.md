@@ -6,7 +6,6 @@ By [Hamza](https://twitter.com/oihamza) 👨🏽‍🚀
 
 ###### This project is hosted on Glitch: https://glitch.com/~daily-nasa
 
-
 Once a day, NASA features an astronomy or space science related image through their public API. The images are pretty cool and teach you about the incredible solar system we live in!  
 
 As an astronomy enthusiast, I wondered how I could easily view these images and even get them to appear on my Twitter timeline. I got to work on this, and ended up putting together this fully automated Daily NASA app that Tweets images released each day by NASA.
@@ -21,7 +20,7 @@ What will we be doing today?
 
 Our app is going to be hosted on [Glitch](https://glitch.com/~dailynasa), so we won't be doing much except making sure our app is properly configured.
 
-Once this project has been remixed and the `.env` file's keys and tokens properly configured, we'll schedule a cron-job to make our app Tweet. A cron-job is essentially an automated wake-up call.
+Once our project has been remixed and the `.env` file's keys and tokens properly configured, we'll schedule a cron-job to make our app Tweet. A cron-job is essentially an automated wake-up call.
 
 
 How does the code work exactly?
@@ -59,7 +58,7 @@ Recipe
 
 Step 1 - 💿
 
-a) Remix this project! Click on the "Remix Project" button on the top left of this page.
+a) On our [Glitch project page](https://glitch.com/~daily-nasa), remix this project! Click on the "Remix Project" button on the top left of this page.
 
 ![Remix](https://cdn.glitch.com/40a2e399-2bcb-4c11-b356-fdb1d9baa5e9%2FScreen%20Shot%202019-08-08%20at%203.54.26%20PM.png?v=1565294080315)
 
